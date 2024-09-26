@@ -25,13 +25,6 @@ jobs:
           --health-interval=10s
           --health-timeout=5s
           --health-retries=5
-        env:
-          SONARQUBE_JDBC_USERNAME: "sonar"
-          SONARQUBE_JDBC_PASSWORD: "sonar"
-          SONARQUBE_JDBC_URL: "jdbc:postgresql://db:5432/sonar"
-        options: >-
-          --health-cmd="curl -s http://localhost:9000/api/system/health | grep -q UP"
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
