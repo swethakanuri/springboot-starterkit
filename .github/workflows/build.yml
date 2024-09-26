@@ -13,7 +13,7 @@ jobs:
   # Job 1: Maven Build, Unit Testing, Functional Testing, Performance Testing, SonarQube Scan
   build:
     name: Build and Test
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     services:
       sonar:
