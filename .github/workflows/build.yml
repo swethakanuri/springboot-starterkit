@@ -7,7 +7,6 @@ on:
   pull_request:
     branches:
       - main
-  workflow_dispatch:
 
 jobs:
   # Job 1: Maven Build, Unit Testing, Functional Testing, Performance Testing, SonarQube Scan
