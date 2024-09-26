@@ -12,7 +12,7 @@ jobs:
   # Job 1: Maven Build, Unit Testing, Functional Testing, Performance Testing, SonarQube Scan
   build:
     name: Build and Test
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     services:
       sonar:
@@ -21,9 +21,9 @@ jobs:
           - 9000:9000
         options: >-
           --health-cmd="curl -s http://localhost:9000/api/system/health | grep -q UP"
-          --health-interval=20s
-          --health-timeout=10s
-          --health-retries=15
+          --health-interval=50s
+          --health-timeout=20s
+          --health-retries=25
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
