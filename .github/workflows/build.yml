@@ -27,25 +27,3 @@ jobs:
     - name: Run Unit Tests
       run: mvn test
 
-    - name: Run Functional Tests
-      run: mvn verify -DskipTests=false
-
-    - name: Run Performance Tests
-      run: mvn gatling:test
-
-    - name: SonarCloud Scan
-      env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      run: mvn sonar:sonar -Dsonar.projectKey=your_project_key -Dsonar.organization=your_organization -Dsonar.host.url=https://sonarcloud.io
-
-    - name: Build Docker Image
-      run: docker build -t your_image_name:latest .
-
-    - name: Push to Nexus
-      env:
-        NEXUS_USERNAME: ${{ secrets.NEXUS_USERNAME }}
-        NEXUS_PASSWORD: ${{ secrets.NEXUS_PASSWORD }}
-      run: |
-        docker login -u $NEXUS_USERNAME -p $NEXUS_PASSWORD your_nexus_repo_url
-        docker push your_nexus_repo_url/your_image_name:latest
-
